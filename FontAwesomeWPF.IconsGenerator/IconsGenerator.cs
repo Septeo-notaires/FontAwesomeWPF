@@ -99,7 +99,8 @@ namespace FontAwesomeWPF.IconsGenerator
         public void Initialize(IncrementalGeneratorInitializationContext context)
         {
             // find all additional files that end with .json
-            IncrementalValuesProvider<AdditionalText> jsonFiles = context.AdditionalTextsProvider.Where(static file => file.Path.EndsWith(".json"));
+            IncrementalValuesProvider<AdditionalText> jsonFiles =
+                context.AdditionalTextsProvider.Where(static file => file.Path.EndsWith(".json"));
 
             // read their contents and save their name
             IncrementalValuesProvider<string> namesAndContents = jsonFiles.Select((text, cancellationToken) => text.GetText(cancellationToken)!.ToString());
@@ -107,12 +108,14 @@ namespace FontAwesomeWPF.IconsGenerator
             // generate a class that contains their values as const strings
             context.RegisterSourceOutput(namesAndContents, (spc, nameAndContent) =>
             {
-                spc.AddSource($"FontAwesomeIcons", $@"
+                spc.AddSource($"FontAwesomeIcons.cs", $@"
                     public partial class FontAwesomeIcons
                     {{
                         public string FontAwesomeIcons = ""{nameAndContent}"";
                     }}");
             });
         }
+
+
     }
 }
