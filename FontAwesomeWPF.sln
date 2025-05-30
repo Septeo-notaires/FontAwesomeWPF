@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35931.197 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FontAwesomeWPF", "FontAwesomeWPF\FontAwesomeWPF.csproj", "{92333CE5-E1A5-4A98-B196-F5D3D48CAA82}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FontAwesomeWPF.IconsGenerator", "FontAwesomeWPF.IconsGenerator\FontAwesomeWPF.IconsGenerator.csproj", "{67B27F01-C278-4832-9990-65B53CF3DE43}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{92333CE5-E1A5-4A98-B196-F5D3D48CAA82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92333CE5-E1A5-4A98-B196-F5D3D48CAA82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92333CE5-E1A5-4A98-B196-F5D3D48CAA82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92333CE5-E1A5-4A98-B196-F5D3D48CAA82}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67B27F01-C278-4832-9990-65B53CF3DE43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67B27F01-C278-4832-9990-65B53CF3DE43}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67B27F01-C278-4832-9990-65B53CF3DE43}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67B27F01-C278-4832-9990-65B53CF3DE43}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {083D1799-154B-40B6-9A96-1DEC464F4216}
+	EndGlobalSection
+EndGlobal
