@@ -108,10 +108,10 @@ namespace FontAwesomeWPF.IconsGenerator
             // generate a class that contains their values as const strings
             context.RegisterSourceOutput(namesAndContents, (spc, nameAndContent) =>
             {
-                spc.AddSource($"FontAwesomeIcons.cs", $@"
-                    public partial class FontAwesomeIcons
+                spc.AddSource($"FontAwesomeIcons.generated.cs", $@"
+                    public partial class FontAwesomeIconsGenerated
                     {{
-                        public string FontAwesomeIcons = ""{nameAndContent}"";
+                        public string FontAwesomeIcons = ""bite"";
                     }}");
             });
         }
