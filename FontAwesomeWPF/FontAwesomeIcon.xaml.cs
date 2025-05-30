@@ -34,10 +34,8 @@ namespace FontAwesomeWPF
         {
             if (d is FontAwesomeIcon iconControl && e.NewValue is FontAwesomeIconName iconName)
             {
-                if (FontAwesomeIconMap.IconMap.TryGetValue(iconName, out string unicode))
-                {
-                    iconControl.Icon = unicode;
-                }
+                string unicode = string.Format("\\u{0:X8}", iconName);
+                iconControl.Icon = unicode;
             }
         }
 

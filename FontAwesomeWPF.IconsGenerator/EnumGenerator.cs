@@ -1,13 +1,12 @@
 using Microsoft.CodeAnalysis;
 using Newtonsoft.Json.Linq;
 using System;
-using System.IO;
 using System.Text;
 
 namespace FontAwesomeWPF.IconsGenerator
 {
     [Generator]
-    public class IconsGenerator : IIncrementalGenerator
+    public class EnumGenerator : IIncrementalGenerator
     {
         private static string GenerateIcons(string jsonContent)
         {
@@ -15,7 +14,6 @@ namespace FontAwesomeWPF.IconsGenerator
             JObject iconsData = JObject.Parse(jsonContent);
 
             var enumBuilder = new StringBuilder();
-            var dictBuilder = new StringBuilder();
 
             enumBuilder.AppendLine("public enum FontAwesomeIconName : ushort");
             enumBuilder.AppendLine("{");
@@ -33,15 +31,14 @@ namespace FontAwesomeWPF.IconsGenerator
                 string enumName = ToPascalCase(iconName);
                 if (!string.IsNullOrEmpty(enumName) && char.IsDigit(enumName[0]))
                     enumName = "Icon" + enumName;
-                enumName += enumName + " = " + $"0x{int.Parse(unicode, System.Globalization.NumberStyles.HexNumber):X4}";
 
-                enumBuilder.AppendLine($"    {enumName},");
+                enumBuilder.AppendLine($"    {enumName} = 0x{int.Parse(unicode, System.Globalization.NumberStyles.HexNumber):X4},");
             }
 
             enumBuilder.AppendLine("}");
 
             // Combine and write to a file
-            string namespaceName = "FontAwesomeWPF.IconsGenerator";
+            string namespaceName = "FontAwesomeWPF";
             string output = $"namespace {namespaceName}\n{{\n\t{enumBuilder}\n}}";
 
             return output;
@@ -68,7 +65,7 @@ namespace FontAwesomeWPF.IconsGenerator
         public void Initialize(IncrementalGeneratorInitializationContext context)
         {
             IncrementalValuesProvider<AdditionalText> jsonFiles =
-                context.AdditionalTextsProvider.Where(static file => file.Path.EndsWith(".json"));
+                context.AdditionalTextsProvider.Where(static file => file.Path.EndsWith("icons.json"));
 
             IncrementalValuesProvider<string> sourceCode = jsonFiles.Select(
                 (text, cancellationToken) => GenerateIcons(text.GetText(cancellationToken).ToString()));
