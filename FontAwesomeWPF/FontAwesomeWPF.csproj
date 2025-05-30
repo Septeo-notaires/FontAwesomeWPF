@@ -6,10 +6,14 @@
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <ItemGroup>
-	<AdditionalFiles Include="icons.json" />
-    <ProjectReference Include="..\FontAwesomeWPF.IConsGenerator\FontAwesomeWPF.IconsGenerator.csproj"
-                      OutputItemType="Analyzer"
-                      ReferenceOutputAssembly="false" />
+	<DesignData Include="icons.json" />
+    <ProjectReference Include="..\FontAwesomeWPF.IConsGenerator\FontAwesomeWPF.IconsGenerator.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="FontAwesomeIcon.xaml">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
+    </Page>
   </ItemGroup>
 
 </Project>
