@@ -42,12 +42,7 @@ namespace FontAwesomeWPF.IconsGenerator
 
             // Combine and write to a file
             string namespaceName = "FontAwesomeWPF.IconsGenerator";
-            string output =
-    $@"using System.Collections.Generic;
-namespace {namespaceName}
-{{
-    {enumBuilder}
-}}";
+            string output = $"namespace {namespaceName}\n{{\n\t{enumBuilder}\n}}";
 
             return output;
         }
