@@ -98,7 +98,6 @@
     <ProjectReference Include="..\FontAwesomeWPF\FontAwesomeWPF.csproj">
       <Project>{92333ce5-e1a5-4a98-b196-f5d3d48caa82}</Project>
       <Name>FontAwesomeWPF</Name>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

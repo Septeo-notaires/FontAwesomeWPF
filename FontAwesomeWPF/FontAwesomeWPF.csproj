@@ -1,20 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
   <PropertyGroup>
     <TargetFramework>net48</TargetFramework>
     <UseWPF>true</UseWPF>
     <LangVersion>latest</LangVersion>
+	<AssemblyName>FontAwesomeWPF</AssemblyName>
+	<UserSecretsId>0e5bf416-d39a-405d-a76d-f9518ae49dd8</UserSecretsId>
   </PropertyGroup>
   <ItemGroup>
-	<DesignData Include="icons.json" />
-    <ProjectReference Include="..\FontAwesomeWPF.IConsGenerator\FontAwesomeWPF.IconsGenerator.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+	<AdditionalFiles Include="icons.json" />
   </ItemGroup>
   <ItemGroup>
-    <Page Update="FontAwesomeIcon.xaml">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <Generator>XamlIntelliSenseFileGenerator</Generator>
-    </Page>
-	<AdditionalFiles Include="icons.json" />
-    <ProjectReference Include="..\FontAwesomeWPF.IConsGenerator\FontAwesomeWPF.IconsGenerator.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+    <PackageReference Include="FontAwesomeWPF.IconsGenerator" Version="1.0.2" />
   </ItemGroup>
+ </Project>
 

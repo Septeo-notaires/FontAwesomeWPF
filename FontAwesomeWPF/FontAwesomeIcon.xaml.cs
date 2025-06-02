@@ -17,18 +17,18 @@ namespace FontAwesomeWPF
             FontFamily = faFont;
         }
 
-        public static readonly DependencyProperty IconNameProperty = DependencyProperty.Register(
-            "IconName",
-            typeof(FontAwesomeIconName),
-            typeof(FontAwesomeIcon),
-            new PropertyMetadata(FontAwesomeIconName.House, OnIconNameChanged)
-        );
+       public static readonly DependencyProperty IconNameProperty = DependencyProperty.Register(
+           "IconName",
+           typeof(FontAwesomeIconName),
+           typeof(FontAwesomeIcon),
+           new PropertyMetadata(FontAwesomeIconName.House, OnIconNameChanged)
+       );
 
-        public FontAwesomeIconName IconName
-        {
-            get => (FontAwesomeIconName)GetValue(IconNameProperty);
-            set => SetValue(IconNameProperty, value);
-        }
+       public FontAwesomeIconName IconName
+       {
+           get => (FontAwesomeIconName)GetValue(IconNameProperty);
+           set => SetValue(IconNameProperty, value);
+       }
 
         private static void OnIconNameChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
