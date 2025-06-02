@@ -1,17 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
-  <PropertyGroup>
-    <TargetFramework>net48</TargetFramework>
-    <UseWPF>true</UseWPF>
-    <LangVersion>latest</LangVersion>
-	<AssemblyName>FontAwesomeWPF</AssemblyName>
-	<UserSecretsId>0e5bf416-d39a-405d-a76d-f9518ae49dd8</UserSecretsId>
-  </PropertyGroup>
-  <ItemGroup>
-	<AdditionalFiles Include="icons.json" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="FontAwesomeWPF.IconsGenerator" Version="1.0.2" />
-  </ItemGroup>
- </Project>
+	<PropertyGroup>
+		<TargetFramework>net48</TargetFramework>
+		<UseWPF>true</UseWPF>
+		<LangVersion>latest</LangVersion>
+		<AssemblyName>FontAwesomeWPF</AssemblyName>
+		<UserSecretsId>0e5bf416-d39a-405d-a76d-f9518ae49dd8</UserSecretsId>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+	</PropertyGroup>
+	<ItemGroup>
+		<None Remove="Fonts\Font Awesome 6 Brands-Regular-400.otf" />
+		<None Remove="Fonts\Font Awesome 6 Free-Regular-400.otf" />
+		<None Remove="Fonts\Font Awesome 6 Free-Solid-900.otf" />
+	</ItemGroup>
+	<ItemGroup>
+		<AdditionalFiles Include="icons.json" />
+	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="FontAwesomeWPF.IconsGenerator" Version="1.0.2" Pack="false"/>
+	</ItemGroup>
+	<ItemGroup>
+		<Resource Include="Fonts\Font Awesome 6 Brands-Regular-400.otf" Pack="true">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Resource>
+		<Resource Include="Fonts\Font Awesome 6 Free-Regular-400.otf" Pack="true">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Resource>
+		<Resource Include="Fonts\Font Awesome 6 Free-Solid-900.otf" Pack="true">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Resource>
+	</ItemGroup>
+</Project>
 

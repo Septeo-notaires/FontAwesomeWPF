@@ -13,28 +13,28 @@ namespace FontAwesomeWPF
         public FontAwesomeIcon()
         {
             InitializeComponent();
-            FontFamily faFont = Application.Current.Resources[FontAwesomeIconStyle.Regular.ToDescription()] as FontFamily;
+            FontFamily faFont = this.FindResource(FontAwesomeIconStyle.Solid.ToDescription()) as FontFamily;
             FontFamily = faFont;
         }
 
-       public static readonly DependencyProperty IconNameProperty = DependencyProperty.Register(
-           "IconName",
-           typeof(FontAwesomeIconName),
-           typeof(FontAwesomeIcon),
-           new PropertyMetadata(FontAwesomeIconName.House, OnIconNameChanged)
-       );
+        public static readonly DependencyProperty IconNameProperty = DependencyProperty.Register(
+            "IconName",
+            typeof(FontAwesomeIconName),
+            typeof(FontAwesomeIcon),
+            new PropertyMetadata(FontAwesomeIconName.House, OnIconNameChanged)
+        );
 
-       public FontAwesomeIconName IconName
-       {
-           get => (FontAwesomeIconName)GetValue(IconNameProperty);
-           set => SetValue(IconNameProperty, value);
-       }
+        public FontAwesomeIconName IconName
+        {
+            get => (FontAwesomeIconName)GetValue(IconNameProperty);
+            set => SetValue(IconNameProperty, value);
+        }
 
         private static void OnIconNameChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             if (d is FontAwesomeIcon iconControl && e.NewValue is FontAwesomeIconName iconName)
             {
-                string unicode = string.Format("\\u{0:X8}", iconName);
+                string unicode = char.ConvertFromUtf32((ushort)iconName).ToString();
                 iconControl.Icon = unicode;
             }
         }
@@ -56,7 +56,7 @@ namespace FontAwesomeWPF
         {
             if (d is FontAwesomeIcon iconControl && e.NewValue is FontAwesomeIconStyle iconStyle)
             {
-                FontFamily faFont = Application.Current.Resources[iconStyle.ToDescription()] as FontFamily;
+                FontFamily faFont = iconControl.FindResource(iconStyle.ToDescription()) as FontFamily;
                 iconControl.FontFamily = faFont;
             }
         }
@@ -99,6 +99,7 @@ namespace FontAwesomeWPF
 
         [Description("FontAwesomeBrands")]
         Brands
+
         //Light,
     }
 }

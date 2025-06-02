@@ -9,16 +9,17 @@
              d:DesignWidth="800"
              mc:Ignorable="d">
     <UserControl.Resources>
-        <FontFamily x:Key="FontAwesomeRegular">pack://application:,,,/DemoControls;component/Fonts/#Font Awesome 6 Free Regular</FontFamily>
-        <FontFamily x:Key="FontAwesomeSolid">pack://application:,,,/DemoControls;component/Fonts/#Font Awesome 6 Free Solid</FontFamily>
-        <FontFamily x:Key="FontAwesomeBrands">pack://application:,,,/DemoControls;component/Fonts/#Font Awesome 6 Brands Regular</FontFamily>
+        <ResourceDictionary>
+            <FontFamily x:Key="FontAwesomeRegular">pack://application:,,,/FontAwesomeWPF;component/Fonts/#Font Awesome 6 Free Regular</FontFamily>
+            <FontFamily x:Key="FontAwesomeSolid">pack://application:,,,/FontAwesomeWPF;component/Fonts/#Font Awesome 6 Free Solid</FontFamily>
+            <FontFamily x:Key="FontAwesomeBrands">pack://application:,,,/FontAwesomeWPF;component/Fonts/#Font Awesome 6 Brands Regular</FontFamily>
+        </ResourceDictionary>
     </UserControl.Resources>
-        <TextBlock DataContext="{Binding ElementName=root}"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center"
-                   FontFamily="{Binding FontFamily}"
-                   FontSize="{Binding IconSize}"
-                   Foreground="{Binding IconColor}"
-                   Text="{Binding Icon}" />
-        
+    <TextBlock DataContext="{Binding ElementName=root}"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Center"
+               FontFamily="{Binding FontFamily}"
+               FontSize="{Binding IconSize}"
+               Foreground="{Binding IconColor}"
+               Text="{Binding Icon}" />
 </UserControl>

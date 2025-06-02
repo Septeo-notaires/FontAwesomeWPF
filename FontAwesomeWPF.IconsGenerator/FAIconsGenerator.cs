@@ -6,7 +6,7 @@ using System.Text;
 namespace FontAwesomeWPF.IconsGenerator
 {
     [Generator]
-    public class EnumGenerator : IIncrementalGenerator
+    public class FAIconsGenerator : IIncrementalGenerator
     {
         private static string GenerateIcons(string jsonContent)
         {
