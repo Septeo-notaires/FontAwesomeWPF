@@ -1,7 +1,7 @@
 using Microsoft.CodeAnalysis;
-using Newtonsoft.Json.Linq;
 using System;
 using System.Text;
+using System.Text.Json;
 
 namespace FontAwesomeWPF.IconsGenerator
 {
@@ -11,18 +11,22 @@ namespace FontAwesomeWPF.IconsGenerator
         private static string GenerateIcons(string jsonContent)
         {
             // Path to the icons.json file
-            JObject iconsData = JObject.Parse(jsonContent);
+            JsonDocument iconsData = JsonDocument.Parse(jsonContent);
 
             var enumBuilder = new StringBuilder();
 
             enumBuilder.AppendLine("public enum FontAwesomeIconName : ushort");
             enumBuilder.AppendLine("{");
 
-            foreach (var icon in iconsData)
+            foreach (var icon in iconsData.RootElement.EnumerateObject())
             {
-                string iconName = icon.Key;
+                string iconName = icon.Name;
                 var iconDetails = icon.Value;
-                string unicode = iconDetails["unicode"]?.ToString();
+
+                if (!iconDetails.TryGetProperty("unicode", out JsonElement unicodeElement))
+                    continue;
+
+                string unicode = unicodeElement.GetString();
 
                 if (string.IsNullOrEmpty(unicode))
                     continue;

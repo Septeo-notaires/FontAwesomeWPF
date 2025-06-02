@@ -14,6 +14,7 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <Generator>XamlIntelliSenseFileGenerator</Generator>
     </Page>
+	<AdditionalFiles Include="icons.json" />
+    <ProjectReference Include="..\FontAwesomeWPF.IConsGenerator\FontAwesomeWPF.IconsGenerator.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
   </ItemGroup>
 
-</Project>
