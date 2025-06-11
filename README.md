@@ -130,6 +130,6 @@ dotnet nuget add source "https://pkgs.dev.azure.com/Septeo-GenApi/Compta/_packag
 ---
 
 ## 💡 Idées d’évolutions
-- [ ] Animations
+- [ ] Animations (https://github.com/charri/Font-Awesome-WPF/tree/master/src/WPF/FontAwesome.WPF)
 - [ ] Duocolor
 - [ ] Forfait pro
