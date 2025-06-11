@@ -7,6 +7,12 @@
 		<AssemblyName>FontAwesomeWPF</AssemblyName>
 		<UserSecretsId>0e5bf416-d39a-405d-a76d-f9518ae49dd8</UserSecretsId>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<Version>1.0.2</Version>
+		<PackageId>FontAwesomeWPF</PackageId>
+		<Authors>MODIN x VENANT-VALERY</Authors>
+		<Company>Septeo Solution Notaire</Company>
+		<Product>FontAwesomeWPF</Product>
+		<Description>FontAwesomeWPF is a WPF control library that enables easy integration of Font Awesome icons into .NET Framework 4.8 applications. It provides a customizable UserControl for displaying vector-based icons with support for different styles (Regular, Solid, Brands), colors, and sizes. The package embeds the required font resources, so no additional setup is needed. Ideal for modern WPF UIs requiring scalable and stylish iconography.</Description>
 	</PropertyGroup>
 	<ItemGroup>
 		<None Remove="Fonts\Font Awesome 6 Brands-Regular-400.otf" />
@@ -17,7 +23,7 @@
 		<AdditionalFiles Include="icons.json" />
 	</ItemGroup>
 	<ItemGroup>
-		<PackageReference Include="FontAwesomeWPF.IconsGenerator" Version="1.0.2" Pack="false"/>
+	  <PackageReference Include="FontAwesomeWPF.IconsGenerator" Version="1.0.0" />
 	</ItemGroup>
 	<ItemGroup>
 		<Resource Include="Fonts\Font Awesome 6 Brands-Regular-400.otf" Pack="true">
